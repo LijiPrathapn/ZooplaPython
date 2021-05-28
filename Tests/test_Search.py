@@ -3,11 +3,12 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from Pages.SearchPage import SearchPage
 import time
-
+from Pages.SearchPage import SearchPage
+from Utilities.readProperties import ReadConfig
 class Test_01_Main:
-    baseURL="https://www.zoopla.co.uk/"
-    location="London"
-    value="Highest price"
+    baseURL = ReadConfig.getApplicationURL()
+    place = ReadConfig.getLocation()
+
 
     def test_main(self,setup):
         self.driver = setup
@@ -15,9 +16,9 @@ class Test_01_Main:
         print(self.baseURL.title())
         self.sp = SearchPage(self.driver)
         self.sp.clickCookies()
-        self.sp.clickLocation(self.location)
+        self.sp.clickLocation(self.place)
         self.sp.clickSearch()
-        self.sp.sortHighestprice()
+        self.sp.sortHighestprice(self)
         self.sp.sortDescending(self)
         self.sp.fifthProperty()
         self.sp.fifthValue()
