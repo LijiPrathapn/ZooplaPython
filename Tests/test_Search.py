@@ -1,7 +1,4 @@
-import pytest
-from selenium import webdriver
-from selenium.webdriver.support.ui import Select
-from Pages.SearchPage import SearchPage
+
 import time
 from Pages.SearchPage import SearchPage
 from Utilities.readProperties import ReadConfig
@@ -16,14 +13,18 @@ class Test_01_Main:
         print(self.baseURL.title())
         self.sp = SearchPage(self.driver)
         self.sp.clickCookies()
+        time.sleep(3)
         self.sp.clickLocation(self.place)
         self.sp.clickSearch()
         self.sp.sortHighestprice(self)
+        time.sleep(3)
         self.sp.sortDescending(self)
         self.sp.fifthProperty()
+        time.sleep(3)
         self.sp.fifthValue()
         self.sp.agentPage()
         self.sp.agentDetails()
+
 
 
 
