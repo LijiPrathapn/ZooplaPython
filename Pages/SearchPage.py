@@ -4,14 +4,14 @@ from selenium.webdriver.support.ui import Select
 
 class SearchPage:
 
-    cookies_click_xpath ="//*[@id='cookie-consent-form']/div/div/div/button[2]"
+    #cookies_click_xpath ="//*[@id='cookie-consent-form']/div/div/div/button[2]"
     location_textbox_xpath ="//input[@id='header-location']"
     search_box="//button[contains(text(),'Search')]"
     highest_price_id="sort-order-dropdown"
-    descending_price="//p[contains(@class,'css-6v9gpl-Text eczcs4p0')]"
-    fifth_property="//body/div[@id='__next']/div[5]/div[1]/main[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[2]/a[1]"
-    fifth_value="//*[@id='main-content']/div[1]/div[10]/div/div[1]/div[1]/h3"
-    agent_page="//body/div[@id='__next']/main[@id='main-content']/div[1]/div[10]/div[1]/div[1]/div[1]/a[1]/img[1]"
+    descending_price="//p[@class='css-1o565rw-Text eczcs4p0']"
+    fifth_property="//body/div[@id='__next']/div[4]/div[2]/main[1]/div[2]/div[2]/div[5]/div[1]/div[2]/div[2]/a[2]/div[1]/div[1]/p[1]"
+    fifth_value="View agent properties"
+    agent_page="//body/div[@id='__next']/main[@id='main-content']/div[1]/div[12]/div[1]/section[1]/div[1]/div[1]/a[1]/img[1]"
     agent_details="//*[@id='content']/div/h1"
 
 
@@ -19,8 +19,8 @@ class SearchPage:
         self.driver = driver
 
 
-    def clickCookies(self):
-        self.driver.find_element_by_xpath(self.cookies_click_xpath).click()
+    #def clickCookies(self):
+        #self.driver.find_element_by_xpath(self.cookies_click_xpath).click()
 
 
     def clickLocation(self,place):
@@ -45,7 +45,7 @@ class SearchPage:
 
     def fifthValue(self):
         time.sleep(3)
-        b=self.driver.find_element_by_xpath(self.fifth_value)
+        b=self.driver.find_element_by_link_text(self.fifth_value)
         print("The Fifth Property is clicked",b.text)
 
     def agentPage(self):

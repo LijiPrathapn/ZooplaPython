@@ -12,7 +12,7 @@ class Test_01_Main:
         self.driver.get(self.baseURL)
         print(self.baseURL.title())
         self.sp = SearchPage(self.driver)
-        self.sp.clickCookies()
+        #self.sp.clickCookies()
         time.sleep(3)
         self.sp.clickLocation(self.place)
         self.sp.clickSearch()
